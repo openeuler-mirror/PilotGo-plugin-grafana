@@ -1,0 +1,10 @@
+grafana:
+  http_addr: "0.0.0.0:9999"
+pilotgo:
+  http_addr: "192.168.75.100:8887"
+log:
+  level: debug
+  driver: stdout    
+  path: /var/log/grafana.log
+  max_file: 1
+  max_size: 10485760
