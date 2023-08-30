@@ -10,6 +10,7 @@ import (
 	"gitee.com/openeuler/PilotGo-plugins/sdk/logger"
 	"gitee.com/openeuler/PilotGo-plugins/sdk/plugin/client"
 	"github.com/gin-gonic/gin"
+	"openeuler.org/PilotGo/grafana-plugin/conf"
 )
 
 const Version = "0.0.1"
@@ -35,22 +36,13 @@ func main() {
 	client.RegisterHandlers(server)
 	InitRouter(server)
 
-	if err := server.Run("0.0.0.0:9999"); err != nil {
+	if err := server.Run(conf.Config().Grafana.Addr); err != nil {
 		logger.Fatal("failed to run server")
 	}
 }
 
 func InitLogger() {
-	// TODO: use config in file
-	conf := &logger.LogOpts{
-		Level:   "debug",
-		Driver:  "stdout",
-		Path:    "./log",
-		MaxFile: 10,
-		MaxSize: 1024 * 1024 * 30,
-	}
-
-	if err := logger.Init(conf); err != nil {
+	if err := logger.Init(conf.Config().Logopts); err != nil {
 		fmt.Printf("logger init failed, please check the config file: %s", err)
 		os.Exit(-1)
 	}
