@@ -20,8 +20,8 @@ var PluginInfo = &client.PluginInfo{
 	Description: "grafana可视化工具支持",
 	Author:      "guozhengxin",
 	Email:       "guozhengxin@kylinos.cn",
-	Url:         "http://10.41.121.71:9999/plugin/grafana",
-	ReverseDest: "http://10.41.121.71:3000/",
+	Url:         "http://192.168.75.100:9999/plugin/grafana",
+	ReverseDest: "http://192.168.75.100:3000/",
 }
 
 func main() {
@@ -33,8 +33,9 @@ func main() {
 
 	client := client.DefaultClient(PluginInfo)
 	client.RegisterHandlers(server)
+	InitRouter(server)
 
-	if err := server.Run(":9999"); err != nil {
+	if err := server.Run("0.0.0.0:9999"); err != nil {
 		logger.Fatal("failed to run server")
 	}
 }
@@ -43,7 +44,7 @@ func InitLogger() {
 	// TODO: use config in file
 	conf := &logger.LogOpts{
 		Level:   "debug",
-		Driver:  "stdio",
+		Driver:  "stdout",
 		Path:    "./log",
 		MaxFile: 10,
 		MaxSize: 1024 * 1024 * 30,
