@@ -1,8 +1,10 @@
 # config file
 config.yml
+config.yaml
 
 # bin files
 server
 *.exe
+grafana
 
 .vscode
