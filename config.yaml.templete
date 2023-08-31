@@ -1,0 +1,12 @@
+http_server:
+  addr: "192.168.48.169:9999"
+grafana_server:
+  addr: "192.168.48.169:3000"
+pilotgo_server:
+  addr: "192.168.48.169:8887"
+log:
+  level: debug
+  driver: stdout    
+  path: /var/log/grafana.log
+  max_file: 1
+  max_size: 10485760

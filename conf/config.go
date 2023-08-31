@@ -4,33 +4,32 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"path"
-	"path/filepath"
-	"runtime"
 
 	"gitee.com/openeuler/PilotGo-plugins/sdk/logger"
 	"gopkg.in/yaml.v3"
 )
 
-type GrafanaConf struct {
-	Addr string `yaml:"http_addr"`
+type HttpConfig struct {
+	Addr string `json:"addr"`
 }
 
-type PilotGoConf struct {
+type GrafanaConfig struct {
+	Addr string `yaml:"addr"`
+}
+
+type PilotGoConfig struct {
 	Addr string `yaml:"http_addr"`
 }
 
 type ServerConfig struct {
-	Grafana  *GrafanaConf    `yaml:"grafana"`
-	PilotGo  *PilotGoConf    `yaml:"pilotgo"`
-	Logopts  *logger.LogOpts `yaml:"log"`
+	Http    *HttpConfig     `yaml:"http_server"`
+	Grafana *GrafanaConfig  `yaml:"grafana_server"`
+	PilotGo *PilotGoConfig  `yaml:"pilotgo_server"`
+	Logopts *logger.LogOpts `yaml:"log"`
 }
 
 func config_file() string {
-	_, thisfilepath, _, _ := runtime.Caller(0)
-	dirpath := filepath.Dir(thisfilepath)
-	configfilepath := path.Join(dirpath, "..", "config.yaml")
-	return configfilepath
+	return "./config.yaml"
 }
 
 var global_config ServerConfig

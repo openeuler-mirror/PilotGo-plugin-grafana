@@ -21,14 +21,17 @@ var PluginInfo = &client.PluginInfo{
 	Description: "grafana可视化工具支持",
 	Author:      "guozhengxin",
 	Email:       "guozhengxin@kylinos.cn",
-	Url:         "http://192.168.75.100:9999/plugin/grafana",
-	ReverseDest: "http://192.168.75.100:3000/",
+	// Url:         "http://192.168.48.169:9999/plugin/grafana",
+	// ReverseDest: "http://192.168.48.169:3000/",
 }
 
 func main() {
 	fmt.Println("hello grafana")
 
 	InitLogger()
+
+	PluginInfo.Url = "http://" + conf.Config().Http.Addr + "/plugin/grafana"
+	PluginInfo.ReverseDest = "http://" + conf.Config().Grafana.Addr + "/plugin/grafana"
 
 	server := gin.Default()
 
@@ -73,6 +76,13 @@ func ReverseProxyHandler(c *gin.Context) {
 
 	proxy := httputil.NewSingleHostReverseProxy(target)
 	c.Request.URL.Path = strings.Replace(c.Request.URL.Path, "/plugin/grafana", "", 1) //请求API
+
+	// proxy.ModifyResponse = func(r *http.Response) error {
+	// 	if setCookie := r.Header.Get("Set-Cookie"); setCookie != "" {
+	// 		r.Header.Set("Set-Cookie", setCookie+" ; Secure ")
+	// 	}
+	// 	return nil
+	// }
 
 	proxy.ServeHTTP(c.Writer, c.Request)
 }
