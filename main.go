@@ -21,6 +21,8 @@ var PluginInfo = &client.PluginInfo{
 	Description: "grafana可视化工具支持",
 	Author:      "guozhengxin",
 	Email:       "guozhengxin@kylinos.cn",
+	Url:         "",
+	ReverseDest: "",
 	// Url:         "http://192.168.48.169:9999/plugin/grafana",
 	// ReverseDest: "http://192.168.48.169:3000/",
 }
@@ -39,7 +41,7 @@ func main() {
 	client.RegisterHandlers(server)
 	InitRouter(server)
 
-	if err := server.Run(conf.Config().Grafana.Addr); err != nil {
+	if err := server.Run(conf.Config().Http.Addr); err != nil {
 		logger.Fatal("failed to run server")
 	}
 }
