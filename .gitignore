@@ -7,4 +7,8 @@ server
 *.exe
 grafana
 
+# develop config
 .vscode
+
+# log file
+log/

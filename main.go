@@ -33,7 +33,7 @@ func main() {
 	InitLogger()
 
 	PluginInfo.Url = "http://" + conf.Config().Http.Addr + "/plugin/grafana"
-	PluginInfo.ReverseDest = "http://" + conf.Config().Grafana.Addr + "/plugin/grafana"
+	PluginInfo.ReverseDest = "http://" + conf.Config().Grafana.Addr
 
 	server := gin.Default()
 
