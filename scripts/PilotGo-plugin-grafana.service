@@ -1,0 +1,14 @@
+[Unit]
+Description=PilotGo plugin grafana
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3s
+WorkingDirectory=/opt/PilotGo/plugin/grafana
+ExecStart=/opt/PilotGo/plugin/grafana/PilotGo-plugin-grafana --config.file=/opt/PilotGo/plugin/grafana/config.yaml
+
+[Install]
+WantedBy=multi-user.target
