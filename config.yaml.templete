@@ -1,9 +1,9 @@
 http_server:
-  addr: "192.168.48.169:9999"
+  addr: "localhost:9999"
 grafana_server:
-  addr: "192.168.48.169:3000"
+  addr: "localhost:3000"
 pilotgo_server:
-  addr: "192.168.48.169:8887"
+  addr: "localhost:8887"
 log:
   level: debug
   driver: file # 可选stdout和file。stdout：输出到终端控制台；file：输出到path下的指定文件。

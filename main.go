@@ -13,7 +13,7 @@ import (
 	"openeuler.org/PilotGo/grafana-plugin/conf"
 )
 
-const Version = "0.0.1"
+const Version = "1.0.1"
 
 var PluginInfo = &client.PluginInfo{
 	Name:        "grafana",
@@ -23,8 +23,6 @@ var PluginInfo = &client.PluginInfo{
 	Email:       "guozhengxin@kylinos.cn",
 	Url:         "",
 	ReverseDest: "",
-	// Url:         "http://192.168.48.169:9999/plugin/grafana",
-	// ReverseDest: "http://192.168.48.169:3000/",
 }
 
 func main() {
