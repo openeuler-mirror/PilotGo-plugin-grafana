@@ -19,6 +19,11 @@ PilotGo grafana plugin maintains grafana to provide beautiful visual monitoring 
 2.  xxxx
 3.  xxxx
 
+#### 补充链接
+1.  [PilotGo使用手册](https://gitee.com/openeuler/docs/tree/master/docs/zh/docs/PilotGo/使用手册.md)
+2.  PilotGo[代码仓](https://gitee.com/openeuler/PilotGo)
+3.  PilotGo[软件包仓](https://gitee.com/src-openeuler/PilotGo)
+
 #### 参与贡献
 
 1.  Fork 本仓库
