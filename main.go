@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"gitee.com/openeuler/PilotGo-plugins/sdk/logger"
-	"gitee.com/openeuler/PilotGo-plugins/sdk/plugin/client"
+	"gitee.com/openeuler/PilotGo/sdk/logger"
+	"gitee.com/openeuler/PilotGo/sdk/plugin/client"
 	"github.com/gin-gonic/gin"
 	"openeuler.org/PilotGo/grafana-plugin/conf"
 )

@@ -2,10 +2,9 @@ package conf
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 
-	"gitee.com/openeuler/PilotGo-plugins/sdk/logger"
+	"gitee.com/openeuler/PilotGo/sdk/logger"
 	"gopkg.in/yaml.v3"
 )
 
@@ -47,7 +46,7 @@ func Config() *ServerConfig {
 }
 
 func readConfig(file string, config interface{}) error {
-	bytes, err := ioutil.ReadFile(file)
+	bytes, err := os.ReadFile(file)
 	if err != nil {
 		fmt.Printf("open %s failed! err = %s\n", file, err.Error())
 		return err
