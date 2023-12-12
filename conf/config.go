@@ -16,14 +16,9 @@ type GrafanaConfig struct {
 	Addr string `yaml:"addr"`
 }
 
-type PilotGoConfig struct {
-	Addr string `yaml:"http_addr"`
-}
-
 type ServerConfig struct {
 	Http    *HttpConfig     `yaml:"http_server"`
 	Grafana *GrafanaConfig  `yaml:"grafana_server"`
-	PilotGo *PilotGoConfig  `yaml:"pilotgo_server"`
 	Logopts *logger.LogOpts `yaml:"log"`
 }
 

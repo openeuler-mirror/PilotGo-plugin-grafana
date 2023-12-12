@@ -22,6 +22,7 @@ var PluginInfo = &client.PluginInfo{
 	Author:      "guozhengxin",
 	Email:       "guozhengxin@kylinos.cn",
 	Url:         "",
+	PluginType:  "iframe",
 	ReverseDest: "",
 }
 
