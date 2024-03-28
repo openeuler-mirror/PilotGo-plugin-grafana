@@ -3,7 +3,7 @@ module openeuler.org/PilotGo/grafana-plugin
 go 1.17
 
 require (
-	gitee.com/openeuler/PilotGo/sdk v0.0.0-20231229071059-61698c219eb3
+	gitee.com/openeuler/PilotGo/sdk v0.0.0-20240328030306-4b66a7291c6e
 	github.com/gin-gonic/gin v1.9.1
 	gopkg.in/yaml.v3 v3.0.1
 )
