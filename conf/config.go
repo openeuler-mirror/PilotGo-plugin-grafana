@@ -9,11 +9,12 @@ import (
 )
 
 type HttpConfig struct {
-	Addr string `json:"addr"`
+	Addr string `yaml:"addr"`
 }
 
 type GrafanaConfig struct {
-	Addr string `yaml:"addr"`
+	Addr       string `yaml:"addr"`
+	PluginType string `yaml:"plugin_type"`
 }
 
 type ServerConfig struct {
