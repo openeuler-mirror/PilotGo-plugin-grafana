@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 
+	"gitee.com/openeuler/PilotGo/sdk/common"
 	"gitee.com/openeuler/PilotGo/sdk/logger"
 	"gitee.com/openeuler/PilotGo/sdk/plugin/client"
 	"github.com/gin-gonic/gin"
@@ -22,7 +23,7 @@ var PluginInfo = &client.PluginInfo{
 	Author:      "guozhengxin",
 	Email:       "guozhengxin@kylinos.cn",
 	Url:         "",
-	PluginType:  "iframe",
+	PluginType:  "",
 	ReverseDest: "",
 }
 
@@ -31,14 +32,26 @@ func main() {
 
 	InitLogger()
 
-	PluginInfo.Url = "http://" + conf.Config().Http.Addr + "/plugin/grafana"
+	PluginInfo.Url = "http://" + conf.Config().Http.Addr
 	PluginInfo.ReverseDest = "http://" + conf.Config().Grafana.Addr
+	PluginInfo.PluginType = conf.Config().Grafana.PluginType
 
 	server := gin.Default()
 
 	client := client.DefaultClient(PluginInfo)
 	client.RegisterHandlers(server)
 	InitRouter(server)
+
+	// 添加扩展点
+	var ex []common.Extention
+	me1 := &common.MachineExtention{
+		Type:       common.ExtentionPage,
+		Name:       "plugin-grafana",
+		URL:        "/plugin/grafana",
+		Permission: "plugin.grafana.page/menu",
+	}
+	ex = append(ex, me1)
+	client.RegisterExtention(ex)
 
 	if err := server.Run(conf.Config().Http.Addr); err != nil {
 		logger.Fatal("failed to run server")
