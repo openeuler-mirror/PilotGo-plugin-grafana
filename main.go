@@ -34,7 +34,7 @@ func main() {
 
 	PluginInfo.Url = "http://" + conf.Config().Http.Addr
 	PluginInfo.ReverseDest = "http://" + conf.Config().Grafana.Addr
-	PluginInfo.PluginType = conf.Config().Grafana.PluginType
+	PluginInfo.PluginType = "iframe"
 
 	server := gin.Default()
 

@@ -13,8 +13,7 @@ type HttpConfig struct {
 }
 
 type GrafanaConfig struct {
-	Addr       string `yaml:"addr"`
-	PluginType string `yaml:"plugin_type"`
+	Addr string `yaml:"addr"`
 }
 
 type ServerConfig struct {
