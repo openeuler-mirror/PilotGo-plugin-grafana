@@ -5,7 +5,6 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"os"
-	"strings"
 
 	"gitee.com/openeuler/PilotGo/sdk/common"
 	"gitee.com/openeuler/PilotGo/sdk/logger"
@@ -44,7 +43,7 @@ func main() {
 
 	// 添加扩展点
 	var ex []common.Extention
-	me1 := &common.MachineExtention{
+	me1 := &common.PageExtention{
 		Type:       common.ExtentionPage,
 		Name:       "plugin-grafana",
 		URL:        "/plugin/grafana",
@@ -89,7 +88,6 @@ func ReverseProxyHandler(c *gin.Context) {
 	}
 
 	proxy := httputil.NewSingleHostReverseProxy(target)
-	c.Request.URL.Path = strings.Replace(c.Request.URL.Path, "/plugin/grafana", "", 1) //请求API
 
 	// proxy.ModifyResponse = func(r *http.Response) error {
 	// 	if setCookie := r.Header.Get("Set-Cookie"); setCookie != "" {
