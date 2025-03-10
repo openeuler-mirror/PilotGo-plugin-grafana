@@ -27,7 +27,7 @@ PilotGo grafana plugin maintains grafana to provide beautiful visual monitoring 
    grafana_server:addr为安装grafana地址；
    >cd PilotGo-plugin-grafana
    >go run main.go
-5.  将grafana插件服务注册到PilotGo平台 [插件管理] -> [添加插件] -> 插件名称：grafana；插件地址：http://ip:端口（默认9999） -> [启用插件] 启用成功，即可在PilotGo平台查看grafana插件看板；若启动失败，通过 /opt/PilotGo/plugin/grafana/log 查看插件报错原因。
+5.  将grafana插件服务注册到PilotGo平台 [插件管理] -> [添加插件] -> 插件名称：grafana；插件地址：http://ip:port/plugin/grafana（默认9999） -> [启用插件] 启用成功，即可在PilotGo平台查看grafana插件看板；若启动失败，通过 /opt/PilotGo/plugin/grafana/log 查看插件报错原因。
 
 #### 使用说明
 
