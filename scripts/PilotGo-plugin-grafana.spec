@@ -5,8 +5,8 @@ Version:        1.0.1
 Release:        1
 Summary:        PilotGo grafana plugin maintains grafana to provide beautiful visual monitoring interface.
 License:        MulanPSL-2.0
-URL:            https://gitee.com/openeuler/PilotGo-plugin-grafana
-Source0:        https://gitee.com/openeuler/PilotGo-plugin-grafana/%{name}-%{version}.tar.gz
+URL:            https://atomgit.com/openeuler/PilotGo-plugin-grafana
+Source0:        https://atomgit.com/openeuler/PilotGo-plugin-grafana/%{name}-%{version}.tar.gz
 BuildRequires:  systemd
 BuildRequires:  golang
 Requires:       grafana
